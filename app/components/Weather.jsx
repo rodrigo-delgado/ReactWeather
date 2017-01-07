@@ -6,13 +6,19 @@ var openWeatherMap = require('openWeatherMap')
 var Weather = React.createClass({
   getInitialState: function () {
     return {
+<<<<<<< HEAD
       isLoading: false
+=======
+      location: 'Arica',
+      temp: 25
+>>>>>>> 6a24269... get api working from open weather org
     }
   },
 
   heandleSearch: function (location) {
     var that = this
 
+<<<<<<< HEAD
     this.setState({isLoading: true})
 
 
@@ -37,13 +43,30 @@ var Weather = React.createClass({
         return <WeatherMessage temp={temp} location={location}/>
       }
     }
+=======
+    openWeatherMap.getTemp(location).then(function (temp) {
+      that.setState({
+        location: location,
+        temp: temp
+      })
+    }, function (erroMessage) {
+        alert(errorMessage)
+    })
+  },
+  render: function () {
+    var {temp, location} = this.state
+>>>>>>> 6a24269... get api working from open weather org
 
     return (
       <div>
         <h3>Weather Component</h3>
         <WeatherForm onSearch={this.heandleSearch}/>
+<<<<<<< HEAD
           {renderMessage()}
 
+=======
+        <WeatherMessage temp={temp} location={location}/>
+>>>>>>> 6a24269... get api working from open weather org
       </div>
     )
   }
