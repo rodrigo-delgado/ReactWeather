@@ -12,7 +12,7 @@ var Weather = React.createClass({
 
   heandleSearch: function (location) {
     var that = this
-
+    
     this.setState({isLoading: true})
 
 
@@ -22,9 +22,10 @@ var Weather = React.createClass({
         temp: temp,
         isLoading: false
       })
-    }, function (erroMessage) {
+    }, function (errorMessage) {
       that.setState({isLoading: false})
       alert(errorMessage)
+
     })
   },
   render: function () {
